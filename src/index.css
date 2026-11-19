@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Amiri", Georgia, serif;
+  --font-sans: "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-navy-950: #07101f;
+  --color-navy-900: #0b172a;
+  --color-navy-800: #132542;
+  --color-navy-700: #1d355d;
+  --color-gold-500: #c8972c;
+  --color-gold-400: #ddb14a;
+  --color-gold-300: #ebd08a;
+  --color-parchment: #fbf9f4;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    direction: rtl;
+  }
+
+  h1, h2, .font-editorial {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom subtle architectural grid pattern */
+.bg-blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(200, 151, 44, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 151, 44, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-light-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 32, 64, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 32, 64, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Smooth horizontal scrollbar hiding for timeline rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
